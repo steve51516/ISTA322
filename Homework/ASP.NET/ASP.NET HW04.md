@@ -28,11 +28,11 @@ development
       + Builds the solution
   - `dotnet run`
       + Runs the program. This starts the integrated ASP.NET Core HTTP server to listen for HTTP requests on port 5000.
-7. (not in book) You can manage packages using the NuGet package manager and the command line tool dotnet add package. What are packages and what are they used for. [Microsoft's Documentation for NuGet]https://docs.microsoft.com/en-us/nuget/what-is-nuget
+7. (not in book) You can manage packages using the NuGet package manager and the command line tool dotnet add package. What are packages and what are they used for. [Microsoft's Documentation for NuGet](https://docs.microsoft.com/en-us/nuget/what-is-nuget)
   - NuGet package is a single ZIP file with the .nupkg extension that contains compiled code (DLLs), other files related to that code, and a descriptive manifest that includes information like the package's version number. 
   - In short, a NuGet package is a shareable unit of code, but does not require nor imply any particular means of sharing.
   - They are written by other developers and shared to help others make use of the software.
-8. What are tool packages and what are they used for? [Microsoft Documentation for NuGet tool packages]https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools
+8. What are tool packages and what are they used for? [Microsoft Documentation for NuGet tool packages](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools)
   - A .NET Core tool is a special NuGet package that contains a console application.
   - One common example is the Entity Framework Core tools package that installs commands that are used to manage databases in ASP.
 10. What are client side packages and what are they used for?
