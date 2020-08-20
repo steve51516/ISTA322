@@ -10,8 +10,7 @@ Read chapter 04, in the Pro ASP.NET Core 3 book.
 2. What kind of applications do the following templates create? Run these commands and read the documentation. A brief summary of each template is sufficient.
   - `dotnet new console --help` // Description: A project for creating a command-line application that can run on .NET Core on Windows, Linux and macOS
   - `dotnet new mvc --help` //  A project template for creating an ASP.NET Core application with example ASP.NET Core MVC Views and Controllers. This template can also be used for RESTful HTTP services.
-  - `dotnet new web --help` // Description: This template creates a project that is set up with the minimum code and content required for ASP.NET Core
-development
+  - `dotnet new web --help` // Description: This template creates a project that is set up with the minimum code and content required for ASP.NET Core development
 3. What, specifically, do the following commands do?
   - `dotnet new globaljson --sdk-version 3.1.101 --output MySolution/MyProject`
     + `new globaljson` creates a json file, `--sdk-version` specifies the sdk version to specify inside the json file. `--output` specifies the directory to place the json file.
@@ -35,6 +34,8 @@ development
 8. What are tool packages and what are they used for? [Microsoft Documentation for NuGet tool packages](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools)
   - A .NET Core tool is a special NuGet package that contains a console application.
   - One common example is the Entity Framework Core tools package that installs commands that are used to manage databases in ASP.
+9. What are server side packages and what are they used for?
+  - Contain software that is used by servers like code to access a database for example.
 10. What are client side packages and what are they used for?
   - Client-side packages contain content that is delivered to the client, such as images, CSS stylesheets, JavaScript files, and static HTML.
 11. List two ways that a developer can debug code.
