@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title style="text-align: center">WebSite Grid Usage</title>
+	<style type="text/css">
+		div {
+			border: 2px black solid;
+		}
+		#main {
+			display: grid;
+			grid-template-columns: 10% 45% 45%;
+			grid-template-rows: 200px 100px 600px 100px;
+			text-align: center;
+		}
+		#div01 {
+			background-color: #c8ef99;
+			grid-column-start: 1;
+			grid-column-end: 4;
+			grid-row-start: 0;
+			grid-row-start: 1;
+			text-align: center;
+		}
+		#div02 {
+			background-color: #c80000;
+			grid-column-start: 1;
+			grid-column-end: 4;
+			grid-row-start: 1;
+			grid-row-start: 2;
+			text-align: center;
+		}
+		#div03{
+			background-color: #4add99;
+			text-decoration-color: #4a7e99;
+			grid-column-start: 1;
+			grid-column-end: 2;
+			grid-row-start: 2;
+			grid-row-start: 3;
+		}
+		#div04 {
+			background-color: #c800ae;
+			grid-column-start: 2;
+			grid-column-end: 3;
+			grid-row-start: 2;
+			grid-row-start: 3;
+			text-align: center;
+		}
+		#div05 {
+			background-color: #c800ae;
+			grid-column-start: 3;
+			grid-column-end: 4;
+			grid-row-start: 2;
+			grid-row-start: 3;
+			text-align: center;
+		}
+		#div06 {
+			background-color: #c8ef99;
+			grid-column-start: 1;
+			grid-column-end: 4;
+			grid-row-start: 3;
+			grid-row-start: 4;
+		}
+	</style>
+</head>
+<body>
+<h1>Main Page of Tech Website</h1>
+<div id="main">
+	<div id="div01"> Main Header</div>
+	<div id="div02"> Main Menu</div>
+	<div id="div03"> Side bar</div>
+	<div id="div04"> 4 Content pane</div>
+	<div id="div05"> 5 Content pane</div>
+	<div id="div06"> Bottom Header</div>
+
+</div>
+</body>
+</html>
