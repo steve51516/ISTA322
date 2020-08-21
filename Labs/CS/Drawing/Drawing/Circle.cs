@@ -14,6 +14,9 @@ namespace Drawing
             diameter = d;
         }
 
+        int IDraw.X { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        int IDraw.Y { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
         void IDraw.Draw(Canvas canvas)
         {
             if (circle != null)

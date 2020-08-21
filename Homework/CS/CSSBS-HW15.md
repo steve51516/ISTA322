@@ -7,13 +7,17 @@ Read chapter 14, pages 305 { 328 in the C# Step by Step book.
   - a field is a variable that we want to keep private to the method, a property acts like a method and allows us to check and set that private field without using a method to do so.
   - A property is how you access a field without having to use a method.
 2. What is the difference between a property and a method?
+  - Methods have parameter list, properties do not.
+  - Assign values to property, we don't invoke a property.
   - A property is a cross between a field and a method—it looks like a field but acts as a method. You access a property by using the same syntax that you use to access a field. However, the compiler automatically translates this field-like syntax into calls to accessors methods
 3. What is your understanding of encapsulation?
   - Encapsulation is used to describe how we hide access to data, or *fields* within our classes from the main program.
+  - Controls how fields are accessed as a single unit, like a capsule.
 4. Some languages are case insensitive, that is, an `a" and an \A" are considered to be the same letter. C# is case sensitive. What implications does this have regarding the naming of variables, methods, and other identifiers? Do you think that the difference in case in the initial character of two different identifiers is sufficient to distinguish them?
   - Technically the case alone is enough for C# to know the difference between objects, like `Employee` and `employee` are two different objects.
   - However this is a very confusing convention and can very easily lead to hard to discover bugs.
 5. Give an example that is not in the book of an instance where you might want to use a read-only property. Give an example not in the book of an instance where you might want to use s write-only property.
+  - A seriel number should be read only.
   - A read only property obviously will be good for a constant value that doesn't change, but we need to read. It would be bad if that value was changed. The `Math.Pi` field is probably a good example.
   - A write only property that isn't a password might be a program that works based on side affects, or a field that is passed outside of the program and should not be read internally. Maybe like a file written to a hard drive.
 6. Can you think of a reason why you might ever want to make getters and setters private? Give an example. Also, make a case why getters and setters should never be private.

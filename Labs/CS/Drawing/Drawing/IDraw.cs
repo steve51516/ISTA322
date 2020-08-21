@@ -4,7 +4,9 @@ namespace Drawing
 {
     interface IDraw
     {
-        void SetLocation(int xCoord, int yCoord);
+        int X { get; set; }
+        int Y { get; set; }
+        //void SetLocation(int xCoord, int yCoord);
         void Draw(Canvas canvas);
     }
 }

@@ -7,6 +7,7 @@ namespace Drawing
 {
     class Square : DrawingShape, IDraw, IColor
     {
+
         public override void Draw(Canvas canvas)
         {
             if (this.shape != null)

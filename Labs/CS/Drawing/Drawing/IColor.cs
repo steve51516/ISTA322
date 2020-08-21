@@ -4,6 +4,7 @@ namespace Drawing
 {
     interface IColor
     {
-        void SetColor(Color color);
+        //void SetColor(Color color);
+        Color Color { set; }
     }
 }
