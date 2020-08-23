@@ -13,6 +13,7 @@ namespace EX07
             var wheel = MakeWheel.CreateWheel();
             Console.WriteLine("\n");
             int winBin = MakeWheel.BallDrop(wheel.Item1);
+            int[] bettingMat = MakeWheel.CreateMat();
             Roulette.BinBet(winBin);
             Roulette.ColorsBet(wheel.Item2, winBin);
             Roulette.LowsHighsBet(winBin);
@@ -20,8 +21,8 @@ namespace EX07
             Roulette.ColumnsBet(winBin);
             Roulette.StreetBet(winBin);
             Roulette.SixBet(winBin);
-            int[] bettingMat = MakeWheel.CreateMat();
             Roulette.AdjacentBet(bettingMat, winBin);
+            Roulette.CornerBet(bettingMat, winBin);
         }
     }
 }

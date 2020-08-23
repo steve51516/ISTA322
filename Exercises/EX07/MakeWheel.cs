@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EX07
 {
@@ -15,16 +11,20 @@ namespace EX07
             int[] numBin = { 0, 2, 14, 35, 23, 4, 16, 33, 21, 6, 18, 31, 19, 8, 12, 29, 25, 10, 27, 00, 1, 13, 36, 24, 3, 15, 34, 22, 5, 17, 32, 20, 7, 11, 30, 26, 9, 28 };
             string[] colorBin = new string[38];
 
-            int x, y, z = 0;
+            int x, y = 0, z = 0;
             Random random = new Random();
             string[] randomColors = { "black", "red" };
-            while (z < 38)
+
+            while (z <= colorBin.Length - 1)
             {
                 x = random.Next(0, 38);
-                y = random.Next(0, 2);
+                //y = random.Next(0, 2);
                 if (colorBin[x] == null)
                 {
                     colorBin[x] = randomColors[y];
+                    y++;
+                    if (y == 2)
+                        y = 0;
                     z++;
                 }
             }
@@ -42,7 +42,7 @@ namespace EX07
         }
         public static int[] CreateMat()
         {
-            int[] mat = new int[36];
+            int[] mat = new int[37];
             for (int i = 0; i < mat.Length; i++)
             {
                 mat[i] = i;

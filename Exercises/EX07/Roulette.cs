@@ -97,162 +97,57 @@ namespace EX07
         }
         public static void AdjacentBet(int[] matBin, int winBin)
         {
-            // Bet on Adjacent numbers
-            if (winBin % 3 == 0)
-                Console.WriteLine($"Adjacent numbers won: {matBin[winBin]}|{matBin[winBin - 1]}");
-            if (winBin % 3 == 2)
+            if (winBin != 0 &&  winBin <= 34)
+            {
+                // Bet on Adjacent numbers
+                if (winBin % 3 == 0) // Top row.
+                    Console.WriteLine($"Adjacent numbers won: {matBin[winBin]}|{matBin[winBin + 1]}");
+                if (winBin % 3 == 2) // Middle row.
+                {
+                    Console.WriteLine($"Adjacent numbers won: {matBin[winBin]}|{matBin[winBin + 1]}");
+                    Console.WriteLine("and");
+                    Console.WriteLine($"Adjacent numbers also won: {matBin[winBin]}|{matBin[winBin - 1]}");
+                }
+                if (winBin % 3 == 1) // Bottom row.
+                    Console.WriteLine($"Adjacent numbers won: {matBin[winBin]}|{matBin[winBin - 1]}");
+            }
+            if (winBin == 35)
             {
                 Console.WriteLine($"Adjacent numbers won: {matBin[winBin]}|{matBin[winBin - 1]}");
-                Console.WriteLine("and");
-                Console.WriteLine($"Adjacent numbers also won: {matBin[winBin]}|{matBin[winBin + 1]}");
             }
-            if (winBin % 3 == 1)
-                Console.WriteLine($"Adjacent numbers won: {matBin[winBin]}|{matBin[winBin + 1]}");
 
         }
-        //public static int Menu()
-        //{
-        //    Console.WriteLine("\n1: Bet on a bin number. Winnings are 35x1");
-        //    Console.WriteLine("2: Bet on odds or even numbers.");
-        //    Console.WriteLine("3: Bet on red or black colored numbers.");
-        //    Console.WriteLine("4: Lows/Highs: low (1 - 18) or high (19 - 38) numbers.");
-        //    Console.WriteLine("5: Dozens: row thirds, 1 - 12, 13 - 24, 25 - 36 ");
-        //    Console.WriteLine("6. Columns: First, second, or third columns");
-        //    Console.WriteLine("7: Street: rows, e.g., 1/2/3 or 22/23/24");
-        //    Console.WriteLine("8: Numbers: double rows, e.g., 1/2/3/4/5/6 or 22/23/24/25/26/26");
-        //    Console.WriteLine("9: Split: at the edge of any two contiguous numbers, e.g., 1/2, 11/14, and 35/36");
-        //    Console.WriteLine("10: Corner: at the intersection of any four contiguous numbers, e.g., 1/2/4/5, or 23/24/26/27");
-        //    int x, selection = int.Parse(Console.ReadLine());
-        //    switch (selection)
-        //    {
-        //        case 1:
-        //            Console.WriteLine("Enter the bin number you want to bet on: ");
-        //            x = int.Parse(Console.ReadLine());
-        //            if (x > 0 && x <= 38)
-        //            {
-        //                CreateWheel();
-        //                binBet(x);
-        //            }
-        //            else
-        //            {
-        //                Console.WriteLine("You must enter a valid bin number. Reference the table information at the top of the console.");
-        //                Menu();
-        //            }
-        //            break;
-        //        case 2:
-        //            Console.WriteLine("1: for odds");
-        //            Console.WriteLine("2: for evens");
-        //            x = int.Parse(Console.ReadLine());
-        //            if (x > 0 && x < 3)
-        //                OddEvenBet(x);
-        //            else
-        //            {
-        //                Console.WriteLine("You must enter 1 or 2 for odds or evens. Try again.");
-        //                Menu();
-        //            }
-        //            break;
-        //        case 3:
-        //            Console.WriteLine("1: for reds");
-        //            Console.WriteLine("2: for blacks");
-        //            Console.Write("Enter selection: ");
-        //            x = int.Parse(Console.ReadLine());
-        //            if (x > 0 && x < 3)
-        //            {
-        //                if (x == 1)
-        //                    colorsBet("red");
-        //                if (x == 2)
-        //                    colorsBet("black");
-        //            }
-        //            else
-        //            {
-        //                Console.WriteLine("You must enter 1 or 2 for reds or blacks. Try again.");
-        //                Menu();
-        //            }
-        //            break;
-        //        case 4:
-        //            Console.WriteLine("1: for lows (1 - 18)");
-        //            Console.WriteLine("2: for highs (19 - 38)");
-        //            Console.Write("Enter selection: ");
-        //            x = int.Parse(Console.ReadLine());
-        //            if (x > 0 && x < 3)
-        //            {
-        //                lowsHighsBet(x);
-        //            }
-        //            else
-        //            {
-        //                Console.WriteLine("You must enter 1 or 2 for lows or highs. Try again.");
-        //                Menu();
-        //            }
-        //            break;
-        //        case 5:
-        //            Console.WriteLine("1: 1 - 12");
-        //            Console.WriteLine("2: 13 - 24");
-        //            Console.WriteLine("3: 25 - 36");
-        //            Console.Write("Select a dozen: ");
-        //            x = int.Parse(Console.ReadLine());
-        //            if (x >= 1 && x <= 3)
-        //                dozensBet(x);
-        //            else
-        //            {
-        //                Console.WriteLine("You must enter 1, 2, or 3 to select a dozen. Try again.");
-        //                Menu();
-        //            }
-        //            break;
-        //        case 6:
-        //            Console.WriteLine("1: First");
-        //            Console.WriteLine("2: Second");
-        //            Console.WriteLine("3: Third");
-        //            Console.Write("Select a column: ");
-        //            x = int.Parse(Console.ReadLine());
-        //            if (x > 0 && x < 4)
-        //                columnsBet(x);
-        //            else
-        //            {
-        //                Console.WriteLine("You must enter 1, 2, or 3 to select a dozen. Try again.");
-        //                Menu();
-        //            }
-        //            break;
-        //        case 7:
-        //            Console.WriteLine("1: 1/2/3");
-        //            Console.WriteLine("2: 4/5/6");
-        //            Console.WriteLine("3: 7/8/9");
-        //            Console.WriteLine("4: 10/11/12");
-        //            Console.WriteLine("5: 13/14/15");
-        //            Console.WriteLine("6: 16/17/18");
-        //            Console.WriteLine("7: 19/20/21");
-        //            Console.WriteLine("8: 22/23/24");
-        //            Console.WriteLine("9: 25/26/27");
-        //            Console.WriteLine("10: 28/29/30");
-        //            Console.WriteLine("11: 31/32/33");
-        //            Console.WriteLine("12: 34/35/36");
-        //            Console.Write("Pick a Street: ");
-        //            x = int.Parse(Console.ReadLine());
-        //            if (x > 0 && x < 13)
-        //                streetBet(x);
-        //            else
-        //            {
-        //                Console.WriteLine("You must enter a an option of 1 - 13. Try again.");
-        //                Menu();
-        //            }
-        //            break;
-        //        case 8:
-        //            Console.WriteLine("1: 1/2/3/4/5/6");
-        //            Console.WriteLine("2: 7/8/9/10/11/12");
-        //            Console.WriteLine("3: 13/14/15/16/17/18");
-        //            Console.WriteLine("4: 19/20/21/22/23/24");
-        //            Console.WriteLine("5: 22/23/24/25/26/27");
-        //            Console.WriteLine("6: 28/29/30/34/35/36");
-        //            Console.WriteLine("Enter a double street: ");
-        //            x = int.Parse(Console.ReadLine());
-        //            break;
-        //        //case 9:
-        //        //case 10:
-        //        default:
-        //            Console.WriteLine("Enter a selection between 1 and 10.");
-        //            Menu();
-        //            return 0;
-        //    }
-        //    return 0;
-        //}
+        public static void CornerBet(int[] matBin, int winBin)
+        {
+            Console.WriteLine("Corner numbers won:");
+            if (winBin % 3 == 1) // Bottom row. 1, 4, 7 etc.
+            {
+                if (winBin >= 1 && winBin <= 31)
+                {
+                    Console.WriteLine($"{matBin[winBin + 1]}|{matBin[winBin + 4]}");
+                    Console.WriteLine($"{matBin[winBin]}|{matBin[winBin + 3]}");
+                }
+            }
+            if (winBin % 3 == 0) // Top row. 3, 6, 9 etc.
+            {
+                if (winBin >= 1 && winBin <= 33)
+                {
+                    Console.WriteLine($"{matBin[winBin]}|{matBin[winBin + 3]}");
+                    Console.WriteLine($"{matBin[winBin - 1]}|{matBin[winBin + 2]}");
+                }
+            }
+            if (winBin % 3 == 2) // Middle row. 2, 5, 8 etc.
+            {
+                if (winBin >= 2 && winBin <=32)
+                {
+                    Console.WriteLine($"{matBin[winBin + 1]}|{matBin[winBin + 4]}");
+                    Console.WriteLine($"{matBin[winBin]}|{matBin[winBin + 3]}");
+                    Console.WriteLine("and");
+                    Console.WriteLine($"{matBin[winBin]}|{matBin[winBin + 3]}");
+                    Console.WriteLine($"{matBin[winBin - 1]}|{matBin[winBin + 2]}");
+                }
+
+            }
+        }
     }
 }
