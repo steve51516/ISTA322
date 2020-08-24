@@ -127,6 +127,11 @@ namespace EX07
                     Console.WriteLine($"{matBin[winBin + 1]}|{matBin[winBin + 4]}");
                     Console.WriteLine($"{matBin[winBin]}|{matBin[winBin + 3]}");
                 }
+                if (winBin == 34)
+                {
+                    Console.WriteLine($"{matBin[winBin - 2]}|{matBin[winBin + 1]}");
+                    Console.WriteLine($"{matBin[winBin - 3]}|{matBin[winBin]}");
+                }
             }
             if (winBin % 3 == 0) // Top row. 3, 6, 9 etc.
             {
@@ -134,6 +139,11 @@ namespace EX07
                 {
                     Console.WriteLine($"{matBin[winBin]}|{matBin[winBin + 3]}");
                     Console.WriteLine($"{matBin[winBin - 1]}|{matBin[winBin + 2]}");
+                }
+                if (winBin == 36)
+                {
+                    Console.WriteLine($"{matBin[winBin - 3]}|{matBin[winBin]}");
+                    Console.WriteLine($"{matBin[winBin - 4]}|{matBin[winBin - 1]}");
                 }
             }
             if (winBin % 3 == 2) // Middle row. 2, 5, 8 etc.
@@ -146,7 +156,14 @@ namespace EX07
                     Console.WriteLine($"{matBin[winBin]}|{matBin[winBin + 3]}");
                     Console.WriteLine($"{matBin[winBin - 1]}|{matBin[winBin + 2]}");
                 }
-
+                if (winBin == 35)
+                {
+                    Console.WriteLine($"{matBin[winBin - 2]}|{matBin[winBin + 1]}");
+                    Console.WriteLine($"{matBin[winBin - 3]}|{matBin[winBin]}");
+                    Console.WriteLine("and");
+                    Console.WriteLine($"{matBin[winBin - 3]}|{matBin[winBin]}");
+                    Console.WriteLine($"{matBin[winBin - 4]}|{matBin[winBin- 1]}");
+                }
             }
         }
     }

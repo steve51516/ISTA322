@@ -80,10 +80,10 @@ Console.WriteLine($"After:  {Convert.ToString(y, toBase: 2), 4}");
 (h) permission = 7 // Read, Write and Execute
 10. Answer the previous question by converting the decimal permissions into binary permissions. What does this tell you about using this shceme of permissions?
 (a) permission = 0 // 0000
-(b) permission = 1 // 0001
-(c) permission = 2 // 0010
-(d) permission = 3 // 0011
+(b) permission = 1 // 0001 // Read
+(c) permission = 2 // 0010 // Write
+(d) permission = 3 // 0011 // Read and Write
 (e) permission = 4 // 0100
 (f) permission = 5 // 0101
 (g) permission = 6 // 0110
-(h) permission = 7 // 0111
+(h) permission = 7 // 0111 // Read/Write/Execute
