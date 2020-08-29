@@ -42,5 +42,5 @@ Price = 275M
   -  Using yield to define an iterator removes the need for an explicit extra class (the class that holds the state for an enumeration, see IEnumerator<T> for an example) when you implement the IEnumerable and IEnumerator pattern for a custom collection type. [Microsoft Documentation](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/yield)
 13. What is the effect of using the `nameof()` expression?
   - A nameof expression produces the name of a variable, type, or member as the string constant:
-  - [Microsoft nameof() expression](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof)
+  - [Microsoft nameof expression](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof)
 
