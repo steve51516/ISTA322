@@ -42,8 +42,8 @@ namespace EX08
             int topRange = int.Parse(Console.ReadLine());
             Console.Write($"Enter the number between 1 and {topRange} for the computer to guess: ");
             int guessThisNum = int.Parse(Console.ReadLine());
-                int[] range = new int[topRange];
-                for (int i = 0, j = 1; i < range.Length; i++)
+            int[] range = new int[topRange];
+            for (int i = 0, j = 1; i < range.Length; i++)
             {
                 range[i] = j;
                 j++;
@@ -52,13 +52,34 @@ namespace EX08
         }
         void HumanGuess()
         {
-            Random random = new Random();
-
             Console.Write("Enter the maximum number of the range you would like to guess from: ");
             int topRange = int.Parse(Console.ReadLine());
             Console.WriteLine($"The number you will guess is between 1 and {topRange}");
-            random.Next(1, topRange + 1);
-        }
+            Console.Write("Enter your guess: ");
+            Random random = new Random();
+            int numToGuess = random.Next(1, topRange + 1);
+            int timesGuessed = 1;
+            int humanGuess;
+            do
+            {
+                humanGuess = int.Parse(Console.ReadLine());
+                if (humanGuess > numToGuess)
+                {
+                    Console.WriteLine("Your guess was too high.");
+                    timesGuessed++;
+                }
+                else if (humanGuess < numToGuess)
+                {
+                    Console.WriteLine("Your guess was too low.");
+                    timesGuessed++;
+                }
+                else if (humanGuess == numToGuess)
+                {
+                    Console.WriteLine($"The number was {numToGuess}. You guessed correctly!");
+                    Console.WriteLine($"It took you {timesGuessed} times to guess the computers number.");
 
+                }
+            } while (humanGuess != numToGuess);
+        }
     }
 }
