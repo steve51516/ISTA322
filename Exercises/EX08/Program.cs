@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace EX08
 {
@@ -10,6 +8,9 @@ namespace EX08
     {
         static void Main(string[] args)
         {
+            GuessingGame game = new GuessingGame();
+
+            game.StartGame();
         }
     }
     class GuessingGame
@@ -19,27 +20,14 @@ namespace EX08
             Console.WriteLine("1) Guess the computers number.");
             Console.WriteLine("2) Have the computer guess your number");
             Console.Write("Selection: ");
-            int guess;
             int select = int.Parse(Console.ReadLine());
             switch (select)
             {
                 case 1:
-                    Console.WriteLine("Guess a number between 1 and 10");
-                    guess = int.Parse(Console.ReadLine());
-                    if (guess > 0 && guess < 11)
-                        HumanGuess(guess);
+                    HumanGuess();
                     break;
                 case 2:
-                    Console.WriteLine("The computer will guess your number.");
-                    Console.Write("Enter a number between 1 and 10: ");
-                    guess = int.Parse(Console.ReadLine());
-                    if (guess > 0 && guess < 11)
-                        ComputerGuess(guess);
-                    else
-                    {
-                        Console.WriteLine("You must enter a number between 1 and 10");
-                        StartGame();
-                    }
+                    ComputerGuess();
                     break;
                 default:
                     Console.WriteLine("You must enter a 1 or 2.");
@@ -47,37 +35,68 @@ namespace EX08
                     break;
             }
         }
-        void ComputerGuess(int n)
+        void ComputerGuess()
         {
-            List<int> range = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            int newN = bySectionSearch(n, range);
-            if (n == newN)
-                Console.WriteLine($"Your guess was {newN}");
-
-        }
-        void HumanGuess(int n)
-        {
-            int[] range = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        }
-
-        private int bySectionSearch(int n, List<int> range)
-        {
-            if (range.Count != 1)
+            Console.WriteLine("The computer will guess your number.");
+            Console.WriteLine("The number will be between 1 and your selected input. Pick the maximum possible number.");
+            Console.Write("Enter the top number: ");
+            int topRange = int.Parse(Console.ReadLine());
+            Console.Write($"Enter the number between 1 and {topRange} for the computer to guess: ");
+            int guessThisNum = int.Parse(Console.ReadLine());
+                int[] range = new int[topRange];
+                for (int i = 0, j = 1; i < range.Length; i++)
             {
-                if (n == range.Count / 2)
-                    return n;
-                if (n > range.Count / 2) // Removes first half of list if n is greater than half.
-                {
-                    for (int i = 0; i < range.Count / 2 ; i++)
-                        range.RemoveAt(i);
-                }
-                if (n < range.Count / 2) // Removes last half of the list if n is less than half.
-                {
-                    for (int i = range.Count; i > n; i--)
-                        range.RemoveAt(i);
-                }
+                range[i] = j;
+                j++;
             }
-            return range[0];
+            biSectionSearch(guessThisNum, range, range.Length / 2);
+        }
+        void HumanGuess()
+        {
+            //int[] range = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //Console.WriteLine("Guess a number between 1 and 10");
+            //int guess = int.Parse(Console.ReadLine());
+            //if (guess > 0 && guess < 10)
+            //else
+            //    Console.WriteLine("You must enter a number between 1 and 10.");
+        }
+
+        private void biSectionSearch(int n, int[] range, int compGuess)
+        {
+            if (n == compGuess)
+                Console.WriteLine($"The computer guessed your number! it's {compGuess}.");
+
+            if (n > compGuess)
+            {
+                Console.WriteLine($"The computer guessed {compGuess}. This was incorrect, trying agian.");
+
+                range = new int[range.Max() - compGuess];
+                for (int i = 0, j = compGuess + 1; i < range.Length; i++)
+                {
+                    range[i] = j;
+                    j++;
+                }
+                if (range.Length <= 2)
+                    compGuess = range[0];
+                else
+                    compGuess = range.Min() + (range.Length / 2);
+                biSectionSearch(n, range, compGuess);
+            }
+            if (n < compGuess)
+            {
+                Console.WriteLine($"The computer guessed {compGuess}. This was incorrect, trying agian.");
+
+                range = new int[range.Max() - compGuess];
+                for (int i = 0; i < range.Length; i++)
+                {
+                    range[i] = (compGuess - range.Length) + i;
+                }
+                if (range.Length <= 2)
+                    compGuess = range[0];
+                else
+                    compGuess = range.Min() + (range.Length / 2);
+                biSectionSearch(n, range, compGuess);
+            }
         }
     }
 }
