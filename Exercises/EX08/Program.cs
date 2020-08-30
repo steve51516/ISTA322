@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace EX08
 {
@@ -49,54 +48,17 @@ namespace EX08
                 range[i] = j;
                 j++;
             }
-            biSectionSearch(guessThisNum, range, range.Length / 2);
+            BiSectionAlg.Search(guessThisNum, range, range.Length / 2);
         }
         void HumanGuess()
         {
-            //int[] range = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            //Console.WriteLine("Guess a number between 1 and 10");
-            //int guess = int.Parse(Console.ReadLine());
-            //if (guess > 0 && guess < 10)
-            //else
-            //    Console.WriteLine("You must enter a number between 1 and 10.");
+            Random random = new Random();
+
+            Console.Write("Enter the maximum number of the range you would like to guess from: ");
+            int topRange = int.Parse(Console.ReadLine());
+            Console.WriteLine($"The number you will guess is between 1 and {topRange}");
+            random.Next(1, topRange + 1);
         }
 
-        private void biSectionSearch(int n, int[] range, int compGuess)
-        {
-            if (n == compGuess)
-                Console.WriteLine($"The computer guessed your number! it's {compGuess}.");
-
-            if (n > compGuess)
-            {
-                Console.WriteLine($"The computer guessed {compGuess}. This was incorrect, trying agian.");
-
-                range = new int[range.Max() - compGuess];
-                for (int i = 0, j = compGuess + 1; i < range.Length; i++)
-                {
-                    range[i] = j;
-                    j++;
-                }
-                if (range.Length <= 2)
-                    compGuess = range[0];
-                else
-                    compGuess = range.Min() + (range.Length / 2);
-                biSectionSearch(n, range, compGuess);
-            }
-            if (n < compGuess)
-            {
-                Console.WriteLine($"The computer guessed {compGuess}. This was incorrect, trying agian.");
-
-                range = new int[range.Max() - compGuess];
-                for (int i = 0; i < range.Length; i++)
-                {
-                    range[i] = (compGuess - range.Length) + i;
-                }
-                if (range.Length <= 2)
-                    compGuess = range[0];
-                else
-                    compGuess = range.Min() + (range.Length / 2);
-                biSectionSearch(n, range, compGuess);
-            }
-        }
     }
 }
