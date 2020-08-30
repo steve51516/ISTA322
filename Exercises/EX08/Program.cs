@@ -39,9 +39,50 @@ namespace EX08
             Console.WriteLine("The computer will guess your number.");
             Console.WriteLine("The number will be between 1 and your selected input. Pick the maximum possible number.");
             Console.Write("Enter the top number: ");
-            int topRange = int.Parse(Console.ReadLine());
+            int topRange = 100;
+
+            try
+            {
+                do
+                {
+                    topRange = int.Parse(Console.ReadLine());
+                    if (topRange <= 0)
+                    {
+                        Console.WriteLine("You must enter a positive intiger.");
+                        Console.Write("Enter the top number: ");
+                    }
+                } while (topRange <= 0);
+            }
+            catch (FormatException)
+            {
+                //throw new ArgumentException("You must enter an intiger.", e);
+                Console.WriteLine("You must enter an intiger value.");
+                ComputerGuess();
+            }
+
             Console.Write($"Enter the number between 1 and {topRange} for the computer to guess: ");
-            int guessThisNum = int.Parse(Console.ReadLine());
+
+            int guessThisNum = -1;
+
+            try
+            {
+                do
+                {
+                    guessThisNum = int.Parse(Console.ReadLine());
+
+                    if (guessThisNum <= 0)
+                    {
+                        Console.WriteLine("You must enter a positive intiger.");
+                        Console.Write("Enter the top number: ");
+                    }
+                } while (guessThisNum <= 0);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("You must enter an intiger value.");
+                ComputerGuess();
+            }
+
             int[] range = new int[topRange];
             for (int i = 0, j = 1; i < range.Length; i++)
             {

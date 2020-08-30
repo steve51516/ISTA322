@@ -12,7 +12,7 @@ namespace EX08
         {
             if (n > compGuess)
             {
-                Console.WriteLine($"The computer guessed {compGuess}. This was incorrect, trying agian.");
+                Console.WriteLine($"The computer guessed {compGuess}.");
                 range = new int[range.Max() - compGuess];
                 for (int i = 0, j = compGuess + 1; i < range.Length; i++)
                 {
@@ -27,7 +27,7 @@ namespace EX08
             }
             else if (n < compGuess)
             {
-                Console.WriteLine($"The computer guessed {compGuess}. This was incorrect, trying agian.");
+                Console.WriteLine($"The computer guessed {compGuess}.");
                 range = new int[range.Max() - compGuess];
                 for (int i = 0; i < range.Length; i++)
                 {
