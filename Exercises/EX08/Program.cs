@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.Design;
 
 namespace EX08
 {
@@ -69,7 +68,6 @@ namespace EX08
             }
             catch (FormatException)
             {
-                //throw new ArgumentException("You must enter an intiger.", e);
                 Console.WriteLine("You must enter an intiger value.");
                 ComputerGuess();
             }
