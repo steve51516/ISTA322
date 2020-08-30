@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using System.ComponentModel.Design;
 
 namespace EX08
 {
@@ -19,7 +19,21 @@ namespace EX08
             Console.WriteLine("1) Guess the computers number.");
             Console.WriteLine("2) Have the computer guess your number");
             Console.Write("Selection: ");
-            int select = int.Parse(Console.ReadLine());
+            int select = 0;
+            try
+            {
+                do
+                {
+                    select = int.Parse(Console.ReadLine());
+                    if (select < 0 && select > 2)
+                        Console.WriteLine("You must enter either 1 or 2.");
+                } while (select < 0 && select > 2);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("You must enter an intiger.");
+                StartGame();
+            }
             switch (select)
             {
                 case 1:
